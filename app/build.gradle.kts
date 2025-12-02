@@ -2,6 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    // FIREBASE
+    alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.google.services)
+
+    // KOTLIN SERIALIZATION
+    alias(libs.plugins.kotlin.serialization)
+
+    // SQLDELIGHT
+    alias(libs.plugins.sqldelight)
+
 }
 
 android {
@@ -56,4 +67,33 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // NAVIGATION COMPOSE
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serliazation)
+
+    // FIREBASE
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.crashlytics)
+
+    // KOIN
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.android.compose)
+
+    // KTOR
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.negotiation)
+    implementation(libs.ktor.serialization)
+
+    // SQLDELIGHT
+    implementation(libs.sqldelight.runtime)
+    implementation(libs.sqldelight.driver)
+    implementation(libs.sqldelight.coroutines)
+
+    // MASTERIAL 3 EXTENDED ICONS
+    implementation(libs.androidx.material)
 }
