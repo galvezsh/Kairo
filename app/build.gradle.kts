@@ -72,6 +72,9 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serliazation)
 
+    // WINDOW SIZE CLASS
+    implementation(libs.androidx.windowsizeclass)
+
     // FIREBASE
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)

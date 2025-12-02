@@ -18,6 +18,9 @@ crashlyticsGradle = "3.0.6"
 navigationCompose = "2.9.6"
 kotlinxSerialization = "1.9.0"
 
+# WINDOW SIZE CLASS
+windowSizeClass = "1.4.0"
+
 # KOIN
 koinBom = "4.1.1"
 
@@ -54,6 +57,9 @@ firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
 # NAVIGATION COMPOSE
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 kotlinx-serliazation = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+# WINDOW SIZE CLASS
+androidx-windowsizeclass = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "windowSizeClass" }
 
 # KOIN
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
