@@ -10,11 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun StartCompactLayout() {
+fun ExtendedLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
 
     Scaffold { innerPadding ->
         Box( modifier = Modifier.padding( paddingValues = innerPadding ), contentAlignment = Alignment.Center ) {
-            Text( text = "Start Screen in compact layout", color = Color.Black  )
+            Text( text = "Start Screen in extended layout", color = Color.Black )
         }
     }
 }

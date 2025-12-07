@@ -4,28 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.WindowSizeClass
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.galvezsh.kairo.presentation.screens.start_screen.StartCompactLayout
-import com.galvezsh.kairo.presentation.screens.start_screen.StartExtendedLayout
-import com.galvezsh.kairo.presentation.screens.start_screen.StartMediumLayout
+import com.galvezsh.kairo.presentation.screens.create_task_screen.CreateTaskScreen
+import com.galvezsh.kairo.presentation.screens.main_screen.MainScreen
 import com.galvezsh.kairo.presentation.screens.start_screen.StartScreen
 import com.galvezsh.kairo.ui.theme.KairoTheme
 
@@ -39,25 +27,34 @@ class MainActivity : ComponentActivity() {
 
             KairoTheme( dynamicColor = true, darkTheme = isSystemInDarkTheme() ) {
 
-                val windowSizeClass = calculateWindowSizeClass( activity = this )
+                val windowSizeClass = calculateWindowSizeClass( activity = this ).widthSizeClass
                 val rootNavController = rememberNavController()
-                val navBackStackEntry by rootNavController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination
 
+                // Primary navigation controller
                 NavHost(
                     navController = rootNavController,
                     startDestination = StartScreen,
-                    enterTransition = { EnterTransition.None },
-                    exitTransition = { ExitTransition.None },
-                    popEnterTransition = { EnterTransition.None },
-                    popExitTransition = { ExitTransition.None }
+                    enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+                    exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) },
+                    popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) },
+                    popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) }
                 ) {
                     composable<StartScreen> {
-                        when ( windowSizeClass.widthSizeClass ) {
-                            WindowWidthSizeClass.Compact -> { StartCompactLayout() }
-                            WindowWidthSizeClass.Medium -> { StartMediumLayout() }
-                            WindowWidthSizeClass.Expanded -> { StartExtendedLayout() }
+                        StartScreen( windowSizeClass ) {
+                            rootNavController.navigate( route = MainScreen ) {
+                                // This makes the new screen the root one, so if the user make a pop() call, the app will close immediately
+                                popUpTo( id = rootNavController.graph.id ) { inclusive = true }
+                                launchSingleTop = true
+                            }
                         }
+                    }
+
+                    composable<MainScreen> {
+                        MainScreen( windowSizeClass, rootNavController )
+                    }
+
+                    composable<CreateTaskScreen> {
+                        CreateTaskScreen( windowSizeClass )
                     }
                 }
             }
