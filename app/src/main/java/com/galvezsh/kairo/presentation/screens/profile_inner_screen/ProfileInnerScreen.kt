@@ -1,5 +1,8 @@
 package com.galvezsh.kairo.presentation.screens.profile_inner_screen
 
+import androidx.compose.ui.res.stringResource
+import com.galvezsh.kairo.R
+
 import androidx.compose.foundation.background
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
@@ -11,5 +14,5 @@ import com.galvezsh.kairo.presentation.shared.DebugText
 @Composable
 fun ProfileInnerScreen( windowSizeClass: WindowWidthSizeClass ) {
 
-    DebugText( text = "Profile screen", modifier = Modifier.background( Color.Gray ) )
+    DebugText( text = stringResource( id = R.string.debug_profile ), modifier = Modifier.background( Color.Gray ) )
 }

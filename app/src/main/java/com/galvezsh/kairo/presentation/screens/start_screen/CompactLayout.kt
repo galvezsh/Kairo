@@ -1,5 +1,7 @@
 package com.galvezsh.kairo.presentation.screens.start_screen
 
+import androidx.compose.ui.res.stringResource
+
 import com.galvezsh.kairo.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -61,7 +63,7 @@ fun CompactLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Bienvenido a Kairo",
+                    text = stringResource( id = R.string.welcome_title ),
                     fontSize = 22.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = Color.Black
@@ -70,7 +72,7 @@ fun CompactLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Tu temporizador Pomodoro inteligente motivacional para potenciar la productividad. Funciona 100% offline.",
+                    text = stringResource( id = R.string.welcome_description ),
                     fontSize = 14.sp,
                     textAlign = TextAlign.Center,
                     color = Color.Gray
@@ -85,12 +87,12 @@ fun CompactLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
             ) {
                 AssistChip(
                     onClick = { /* Acción futura */ },
-                    label = { Text("Sincronización") }
+                    label = { Text( text = stringResource( id = R.string.chip_sync ) ) }
                 )
 
                 AssistChip(
                     onClick = { /* Acción futura */ },
-                    label = { Text("100% Offline") }
+                    label = { Text( text = stringResource( id = R.string.chip_offline ) ) }
                 )
             }
 
@@ -112,7 +114,7 @@ fun CompactLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
 //                    modifier = Modifier.size(22.dp)
 //                )
 //                Spacer(modifier = Modifier.width(12.dp))
-                Text("Iniciar Sesión con Google")
+                Text( text = stringResource( id = R.string.btn_google_login ) )
             }
 
             // ---------- Botón Invitado ----------
@@ -123,7 +125,7 @@ fun CompactLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
                     .height(52.dp),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text("Continuar offline")
+                Text( text = stringResource( id = R.string.btn_continue_offline ) )
             }
 
             Spacer(modifier = Modifier.height(16.dp))

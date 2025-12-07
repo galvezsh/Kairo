@@ -29,9 +29,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.galvezsh.kairo.R
 import com.galvezsh.kairo.Screen
 
 data class TabItem(
@@ -142,7 +144,7 @@ fun NavigationBarWithFAB(
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Add,
-                        contentDescription = "Crear tarea",
+                        contentDescription = stringResource( id = R.string.fab_create_task_desc ),
                         tint = Color.White,
                         modifier = Modifier.size( size = 30.dp )
                     )

@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">Kairo</string>
+
+    <!-- Navigation & Tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_tasks">Tasks</string>
+    <string name="tab_statistics">Statistics</string>
+    <string name="tab_profile">Profile</string>
+    <string name="title_home">Kairo</string>
+    <string name="title_tasks">Pomodoro tasks</string>
+    <string name="title_statistics">My statistics</string>
+    <string name="title_profile">My profile</string>
+
+    <!-- Start Screen -->
+    <string name="welcome_title">Welcome to Kairo</string>
+    <string name="welcome_description">Your smart motivational Pomodoro timer to boost productivity. Works 100% offline.</string>
+    <string name="chip_sync">Synchronization</string>
+    <string name="chip_offline">100% Offline</string>
+    <string name="btn_google_login">Sign in with Google</string>
+    <string name="btn_continue_offline">Continue offline</string>
+
+    <!-- Debug Screens -->
+    <string name="debug_home">Home screen</string>
+    <string name="debug_tasks">Tasks screen</string>
+    <string name="debug_statistics">Statistics screen</string>
+    <string name="debug_profile">Profile screen</string>
+    <string name="debug_create_task">Create task screen</string>
+    <string name="debug_medium_layout">Start Screen in medium layout</string>
+    <string name="debug_extended_layout">Start Screen in extended layout</string>
+
+    <!-- FAB -->
+    <string name="fab_create_task_desc">Create task</string>
 </resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kairo</string>
+
+    <!-- Navigation & Tabs -->
+    <string name="tab_home">Inicio</string>
+    <string name="tab_tasks">Tareas</string>
+    <string name="tab_statistics">Estadísticas</string>
+    <string name="tab_profile">Perfil</string>
+    <string name="title_home">Kairo</string>
+    <string name="title_tasks">Tareas Pomodoro</string>
+    <string name="title_statistics">Mis estadísticas</string>
+    <string name="title_profile">Mi perfil</string>
+
+    <!-- Start Screen -->
+    <string name="welcome_title">Bienvenido a Kairo</string>
+    <string name="welcome_description">Tu temporizador Pomodoro inteligente motivacional para potenciar la productividad. Funciona 100% offline.</string>
+    <string name="chip_sync">Sincronización</string>
+    <string name="chip_offline">100% Offline</string>
+    <string name="btn_google_login">Iniciar Sesión con Google</string>
+    <string name="btn_continue_offline">Continuar offline</string>
+
+    <!-- Debug Screens -->
+    <string name="debug_home">Pantalla de inicio</string>
+    <string name="debug_tasks">Pantalla de tareas</string>
+    <string name="debug_statistics">Pantalla de estadísticas</string>
+    <string name="debug_profile">Pantalla de perfil</string>
+    <string name="debug_create_task">Pantalla de crear tarea</string>
+    <string name="debug_medium_layout">Pantalla de inicio en diseño mediano</string>
+    <string name="debug_extended_layout">Pantalla de inicio en diseño extendido</string>
+
+    <!-- FAB -->
+    <string name="fab_create_task_desc">Crear tarea</string>
+</resources>

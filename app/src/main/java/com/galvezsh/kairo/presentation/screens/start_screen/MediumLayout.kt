@@ -1,5 +1,8 @@
 package com.galvezsh.kairo.presentation.screens.start_screen
 
+import androidx.compose.ui.res.stringResource
+import com.galvezsh.kairo.R
+
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -14,7 +17,7 @@ fun MediumLayout( onGoogleLogin: () -> Unit, onGuestLogin: () -> Unit ) {
 
     Scaffold { innerPadding ->
         Box( modifier = Modifier.padding( paddingValues = innerPadding ), contentAlignment = Alignment.Center ) {
-            Text( text = "Start Screen in medium layout", color = Color.Black  )
+            Text( text = stringResource( id = R.string.debug_medium_layout ), color = Color.Black  )
         }
     }
 }

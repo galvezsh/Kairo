@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -57,29 +58,29 @@ fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootNavController: NavHos
     val tabs = listOf(
         TabItem(
             route = HomeInnerScreen,
-            tabText = "Home",
-            title = "Kairo",
+            tabText = stringResource( id = R.string.tab_home ),
+            title = stringResource( id = R.string.title_home ),
             selectedIcon = Icons.Filled.Home,
             unselectedIcon = Icons.Outlined.Home
         ),
         TabItem(
             route = TasksInnerScreen,
-            tabText = "Tasks",
-            title = "Pomodoro tasks",
+            tabText = stringResource( id = R.string.tab_tasks ),
+            title = stringResource( id = R.string.title_tasks ),
             selectedIcon = Icons.Filled.CalendarMonth,
             unselectedIcon = Icons.Outlined.CalendarMonth
         ),
         TabItem(
             route = StatisticsInnerScreen,
-            tabText = "Statistics",
-            title = "My statistics",
+            tabText = stringResource( id = R.string.tab_statistics ),
+            title = stringResource( id = R.string.title_statistics ),
             selectedIcon = Icons.Filled.BarChart,
             unselectedIcon = Icons.Outlined.BarChart
         ),
         TabItem(
             route = ProfileInnerScreen,
-            tabText = "Profile",
-            title = "My profile",
+            tabText = stringResource( id = R.string.tab_profile ),
+            title = stringResource( id = R.string.title_profile ),
             selectedIcon = Icons.Filled.Person,
             unselectedIcon = Icons.Outlined.Person
         )
