@@ -68,8 +68,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    // NAVIGATION COMPOSE
-    implementation(libs.navigation.compose)
+    // NAVIGATION 3
+    implementation(libs.navigation3.runtime)
+    implementation(libs.navigation3.ui)
     implementation(libs.kotlinx.serliazation)
 
     // WINDOW SIZE CLASS
@@ -97,6 +98,6 @@ dependencies {
     implementation(libs.sqldelight.driver)
     implementation(libs.sqldelight.coroutines)
 
-    // MASTERIAL 3 EXTENDED ICONS
+    // MATERIAL 3 EXTENDED ICONS
     implementation(libs.androidx.material)
 }

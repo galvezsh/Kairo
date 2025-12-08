@@ -1,5 +1,9 @@
  package com.galvezsh.kairo.presentation.screens.main_screen
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,6 +29,7 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -32,10 +37,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.ui.NavDisplay
 import com.galvezsh.kairo.CreateTaskScreen
 import com.galvezsh.kairo.HomeInnerScreen
 import com.galvezsh.kairo.ProfileInnerScreen
@@ -51,10 +57,11 @@ import com.galvezsh.kairo.presentation.shared.TabItem
 
  @Suppress("ParamsComparedByRef")
 @Composable
-fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootNavController: NavHostController ) {
+fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootBackStack: NavBackStack<NavKey> ) {
 
-    val innerNavController = rememberNavController()
+    val innerBackStack = rememberNavBackStack( HomeInnerScreen )
     var selectedTab by rememberSaveable { mutableIntStateOf( value = 0 ) }  // ← State hoisting
+    var isNavigatingForward by rememberSaveable { mutableStateOf( value = true ) }  // ← Track navigation direction
     val tabs = listOf(
         TabItem(
             route = HomeInnerScreen,
@@ -114,40 +121,64 @@ fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootNavController: NavHos
                 NavigationBarWithFAB(
                     tabs = tabs,
                     selectedTab = selectedTab,
-                    onTabSelected = { index ->
-                        selectedTab = index
-                        innerNavController.navigate( route = tabs[ index ].route ) {
-                            popUpTo( id = innerNavController.graph.id ) { inclusive = true }
-                            launchSingleTop = true
-                        }
+                    onTabSelected = { newIndex ->
+                        // Determine navigation direction based on tab indices
+                        isNavigatingForward = newIndex > selectedTab
+                        selectedTab = newIndex
+
+                        // Clean the navigation list and adds the new screen, making the only one in the stack
+                        innerBackStack.clear()
+                        innerBackStack.add( tabs[ newIndex ].route )
                     },
-                    onCreateTask = { rootNavController.navigate( route = CreateTaskScreen )}
+                    onCreateTask = { rootBackStack.add( CreateTaskScreen ) }
                 )
         }
 
     ) { innerPadding ->
 
-        // Secondary navigation controller
-        NavHost(
-            navController = innerNavController,
-            startDestination = HomeInnerScreen,
-            modifier = Modifier.padding( paddingValues = innerPadding )
-        ) {
-            composable<HomeInnerScreen> {
-                HomeInnerScreen( windowSizeClass )
-            }
+        // Secondary navigation controller with directional animations
+        NavDisplay(
+            backStack = innerBackStack,
+            modifier = Modifier.padding( paddingValues = innerPadding ),
+            transitionSpec = {
+                if ( isNavigatingForward ) {
+                    // Navigating forward (left to right): Home → Tasks → Statistics → Profile
+                    slideInHorizontally(
+                        initialOffsetX = { it },  // Enter from right
+                        animationSpec = tween( durationMillis = 300 )
+                    ) togetherWith slideOutHorizontally(
+                        targetOffsetX = { -it },  // Exit to left
+                        animationSpec = tween( durationMillis = 300 )
+                    )
+                } else {
+                    // Navigating backward (right to left): Profile → Statistics → Tasks → Home
+                    slideInHorizontally(
+                        initialOffsetX = { -it },  // Enter from left
+                        animationSpec = tween( durationMillis = 300 )
+                    ) togetherWith slideOutHorizontally(
+                        targetOffsetX = { it },  // Exit to right
+                        animationSpec = tween( durationMillis = 300 )
+                    )
+                }
+            },
+            entryProvider = entryProvider {
 
-            composable<TasksInnerScreen> {
-                TasksInnerScreen( windowSizeClass )
-            }
+                entry<HomeInnerScreen> {
+                    HomeInnerScreen( windowSizeClass )
+                }
 
-            composable<StatisticsInnerScreen> {
-                StatisticsInnerScreen( windowSizeClass )
-            }
+                entry<TasksInnerScreen> {
+                    TasksInnerScreen( windowSizeClass )
+                }
 
-            composable<ProfileInnerScreen> {
-                ProfileInnerScreen( windowSizeClass )
+                entry<StatisticsInnerScreen> {
+                    StatisticsInnerScreen( windowSizeClass )
+                }
+
+                entry<ProfileInnerScreen> {
+                    ProfileInnerScreen( windowSizeClass )
+                }
             }
-        }
+        )
     }
 }

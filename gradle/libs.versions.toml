@@ -16,6 +16,7 @@ crashlyticsGradle = "3.0.6"
 
 # COMPOSE NAVIGATION
 navigationCompose = "2.9.6"
+navigation3 = "1.0.0"  # Navigation 3.0
 kotlinxSerialization = "1.9.0"
 
 # WINDOW SIZE CLASS
@@ -54,8 +55,9 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
 
-# NAVIGATION COMPOSE
-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+# NAVIGATION 3
+navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "navigation3" }
+navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "navigation3" }
 kotlinx-serliazation = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 
 # WINDOW SIZE CLASS

@@ -1,22 +1,20 @@
 package com.galvezsh.kairo
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed interface Screen
+data object StartScreen : NavKey
+@Serializable
+data object MainScreen : NavKey
+@Serializable
+data object CreateTaskScreen : NavKey
 
 @Serializable
-object StartScreen: Screen
+data object HomeInnerScreen : NavKey
 @Serializable
-object MainScreen: Screen
+data object TasksInnerScreen : NavKey
 @Serializable
-object CreateTaskScreen: Screen
-
+data object StatisticsInnerScreen : NavKey
 @Serializable
-object HomeInnerScreen: Screen
-@Serializable
-object TasksInnerScreen: Screen
-@Serializable
-object StatisticsInnerScreen: Screen
-@Serializable
-object ProfileInnerScreen: Screen
+data object ProfileInnerScreen : NavKey
