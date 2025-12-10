@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -33,26 +32,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation3.runtime.NavKey
 import com.galvezsh.kairo.R
-
-data class TabItem(
-    val route: NavKey,
-    val tabText: String,
-    val title: String,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
-)
-
-@Composable
-fun DebugText( text: String, modifier: Modifier = Modifier ) {
-
-    Box( modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center ) {
-        Column( modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center ) {
-            Text( text = text )
-        }
-    }
-}
 
 @Composable
 fun NavigationItem(
@@ -106,11 +86,12 @@ fun NavigationBarWithFAB(
     Surface(
         color = MaterialTheme.colorScheme.background,
         tonalElevation = 0.dp,
-        modifier = Modifier.fillMaxWidth().windowInsetsPadding( insets = NavigationBarDefaults.windowInsets )
+        modifier = Modifier.fillMaxWidth()
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .windowInsetsPadding( insets = NavigationBarDefaults.windowInsets )
                 .padding( top = 8.dp )
                 .wrapContentHeight(),
             horizontalArrangement = Arrangement.SpaceAround,

@@ -14,9 +14,9 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.galvezsh.kairo.presentation.screens.create_task_screen.CreateTaskScreen
-import com.galvezsh.kairo.presentation.screens.main_screen.MainScreen
-import com.galvezsh.kairo.presentation.screens.start_screen.StartScreen
+import com.galvezsh.kairo.presentation.screens.create_task.CreateTaskScreen
+import com.galvezsh.kairo.presentation.screens.main.MainScreen
+import com.galvezsh.kairo.presentation.screens.start.StartScreen
 import com.galvezsh.kairo.ui.theme.KairoTheme
 
 class MainActivity : ComponentActivity() {
@@ -65,11 +65,7 @@ class MainActivity : ComponentActivity() {
                     entryProvider = entryProvider {
 
                         entry<StartScreen> {
-                            StartScreen( windowSizeClass ) {
-                                // Clean the navigation list and adds the new screen, making the only one in the stack
-                                rootBackStack.clear()
-                                rootBackStack.add( MainScreen )
-                            }
+                            StartScreen( windowSizeClass, rootBackStack )
                         }
 
                         entry<MainScreen> {

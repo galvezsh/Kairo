@@ -1,4 +1,4 @@
- package com.galvezsh.kairo.presentation.screens.main_screen
+ package com.galvezsh.kairo.presentation.screens.main
 
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
@@ -48,14 +48,14 @@ import com.galvezsh.kairo.ProfileInnerScreen
 import com.galvezsh.kairo.R
 import com.galvezsh.kairo.StatisticsInnerScreen
 import com.galvezsh.kairo.TasksInnerScreen
-import com.galvezsh.kairo.presentation.screens.home_inner_screen.HomeInnerScreen
-import com.galvezsh.kairo.presentation.screens.profile_inner_screen.ProfileInnerScreen
-import com.galvezsh.kairo.presentation.screens.statistics_inner_screen.StatisticsInnerScreen
-import com.galvezsh.kairo.presentation.screens.tasks_inner_screen.TasksInnerScreen
+import com.galvezsh.kairo.presentation.screens.main.inner.home.HomeInnerScreen
+import com.galvezsh.kairo.presentation.screens.main.inner.profile.ProfileInnerScreen
+import com.galvezsh.kairo.presentation.screens.main.inner.statistics.StatisticsInnerScreen
+import com.galvezsh.kairo.presentation.screens.main.inner.tasks.TasksInnerScreen
 import com.galvezsh.kairo.presentation.shared.NavigationBarWithFAB
 import com.galvezsh.kairo.presentation.shared.TabItem
 
- @Suppress("ParamsComparedByRef")
+@Suppress("ParamsComparedByRef")
 @Composable
 fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootBackStack: NavBackStack<NavKey> ) {
 
@@ -95,43 +95,41 @@ fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootBackStack: NavBackSta
 
     Scaffold(
         topBar = {
-            if ( windowSizeClass == WindowWidthSizeClass.Compact )
-                Row( modifier = Modifier
-                        .fillMaxWidth()
-                        .background( color = MaterialTheme.colorScheme.background )
-                        .padding( horizontal = 16.dp, vertical = 8.dp )
-                        .windowInsetsPadding( insets = TopAppBarDefaults.windowInsets ),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy( space = 8.dp )
-                ) {
-                    Image(
-                        painter = painterResource( id = R.drawable.ic_launcher_background ),
-                        modifier = Modifier.size( size = 32.dp ),
-                        contentDescription = null,
-                    )
+            Row( modifier = Modifier
+                    .fillMaxWidth()
+                    .background( color = MaterialTheme.colorScheme.background )
+                    .padding( horizontal = 16.dp, vertical = 8.dp )
+                    .windowInsetsPadding( insets = TopAppBarDefaults.windowInsets ),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy( space = 8.dp )
+            ) {
+                Image(
+                    painter = painterResource( id = R.drawable.ic_launcher_background ),
+                    modifier = Modifier.size( size = 32.dp ),
+                    contentDescription = null,
+                )
 
-                    Text(
-                        text = tabs[ selectedTab ].title,
-                        style = MaterialTheme.typography.titleLarge
-                    )
-                }
+                Text(
+                    text = tabs[ selectedTab ].title,
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
         },
         bottomBar = {
-            if ( windowSizeClass == WindowWidthSizeClass.Compact )
-                NavigationBarWithFAB(
-                    tabs = tabs,
-                    selectedTab = selectedTab,
-                    onTabSelected = { newIndex ->
-                        // Determine navigation direction based on tab indices
-                        isNavigatingForward = newIndex > selectedTab
-                        selectedTab = newIndex
+            NavigationBarWithFAB(
+                tabs = tabs,
+                selectedTab = selectedTab,
+                onTabSelected = { newIndex ->
+                    // Determine navigation direction based on tab indices
+                    isNavigatingForward = newIndex > selectedTab
+                    selectedTab = newIndex
 
-                        // Clean the navigation list and adds the new screen, making the only one in the stack
-                        innerBackStack.clear()
-                        innerBackStack.add( tabs[ newIndex ].route )
-                    },
-                    onCreateTask = { rootBackStack.add( CreateTaskScreen ) }
-                )
+                    // Clean the navigation list and adds the new screen, making the only one in the stack
+                    innerBackStack.clear()
+                    innerBackStack.add( tabs[ newIndex ].route )
+                },
+                onCreateTask = { rootBackStack.add( CreateTaskScreen ) }
+            )
         }
 
     ) { innerPadding ->
@@ -164,19 +162,19 @@ fun MainScreen( windowSizeClass: WindowWidthSizeClass, rootBackStack: NavBackSta
             entryProvider = entryProvider {
 
                 entry<HomeInnerScreen> {
-                    HomeInnerScreen( windowSizeClass )
+                    HomeInnerScreen()
                 }
 
                 entry<TasksInnerScreen> {
-                    TasksInnerScreen( windowSizeClass )
+                    TasksInnerScreen()
                 }
 
                 entry<StatisticsInnerScreen> {
-                    StatisticsInnerScreen( windowSizeClass )
+                    StatisticsInnerScreen()
                 }
 
                 entry<ProfileInnerScreen> {
-                    ProfileInnerScreen( windowSizeClass )
+                    ProfileInnerScreen()
                 }
             }
         )
