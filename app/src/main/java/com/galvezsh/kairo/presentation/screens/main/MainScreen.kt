@@ -42,12 +42,12 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.galvezsh.kairo.CreateTaskScreen
-import com.galvezsh.kairo.HomeInnerScreen
-import com.galvezsh.kairo.ProfileInnerScreen
+import com.galvezsh.kairo.presentation.shared.CreateTaskScreen
+import com.galvezsh.kairo.presentation.shared.HomeInnerScreen
+import com.galvezsh.kairo.presentation.shared.ProfileInnerScreen
 import com.galvezsh.kairo.R
-import com.galvezsh.kairo.StatisticsInnerScreen
-import com.galvezsh.kairo.TasksInnerScreen
+import com.galvezsh.kairo.presentation.shared.StatisticsInnerScreen
+import com.galvezsh.kairo.presentation.shared.TasksInnerScreen
 import com.galvezsh.kairo.presentation.screens.main.inner.home.HomeInnerScreen
 import com.galvezsh.kairo.presentation.screens.main.inner.profile.ProfileInnerScreen
 import com.galvezsh.kairo.presentation.screens.main.inner.statistics.StatisticsInnerScreen

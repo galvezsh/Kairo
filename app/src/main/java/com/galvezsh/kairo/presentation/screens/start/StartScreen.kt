@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
-import com.galvezsh.kairo.MainScreen
+import com.galvezsh.kairo.presentation.shared.MainScreen
 
 @Suppress("ParamsComparedByRef")
 @Composable

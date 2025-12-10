@@ -17,6 +17,9 @@ import androidx.navigation3.ui.NavDisplay
 import com.galvezsh.kairo.presentation.screens.create_task.CreateTaskScreen
 import com.galvezsh.kairo.presentation.screens.main.MainScreen
 import com.galvezsh.kairo.presentation.screens.start.StartScreen
+import com.galvezsh.kairo.presentation.shared.CreateTaskScreen
+import com.galvezsh.kairo.presentation.shared.MainScreen
+import com.galvezsh.kairo.presentation.shared.StartScreen
 import com.galvezsh.kairo.ui.theme.KairoTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +33,7 @@ class MainActivity : ComponentActivity() {
             KairoTheme( dynamicColor = true, darkTheme = isSystemInDarkTheme() ) {
 
                 val windowSizeClass = calculateWindowSizeClass( activity = this ).widthSizeClass
-                val rootBackStack = rememberNavBackStack( StartScreen )
+                val rootBackStack = rememberNavBackStack(StartScreen)
 
                 // Primary navigation controller
                 NavDisplay(

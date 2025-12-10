@@ -1,4 +1,4 @@
-package com.galvezsh.kairo
+package com.galvezsh.kairo.presentation.shared
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
