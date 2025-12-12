@@ -4,7 +4,7 @@ import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object StartScreen : NavKey
+data object OnboardingScreen : NavKey
 @Serializable
 data object MainScreen : NavKey
 @Serializable

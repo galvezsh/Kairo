@@ -16,10 +16,10 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.galvezsh.kairo.presentation.screens.create_task.CreateTaskScreen
 import com.galvezsh.kairo.presentation.screens.main.MainScreen
-import com.galvezsh.kairo.presentation.screens.start.StartScreen
+import com.galvezsh.kairo.presentation.screens.onboarding.OnboardingScreen
 import com.galvezsh.kairo.presentation.shared.CreateTaskScreen
 import com.galvezsh.kairo.presentation.shared.MainScreen
-import com.galvezsh.kairo.presentation.shared.StartScreen
+import com.galvezsh.kairo.presentation.shared.OnboardingScreen
 import com.galvezsh.kairo.ui.theme.KairoTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
             KairoTheme( dynamicColor = true, darkTheme = isSystemInDarkTheme() ) {
 
                 val windowSizeClass = calculateWindowSizeClass( activity = this ).widthSizeClass
-                val rootBackStack = rememberNavBackStack(StartScreen)
+                val rootBackStack = rememberNavBackStack(OnboardingScreen)
 
                 // Primary navigation controller
                 NavDisplay(
@@ -67,8 +67,8 @@ class MainActivity : ComponentActivity() {
                     },
                     entryProvider = entryProvider {
 
-                        entry<StartScreen> {
-                            StartScreen( windowSizeClass, rootBackStack )
+                        entry<OnboardingScreen> {
+                            OnboardingScreen( rootBackStack )
                         }
 
                         entry<MainScreen> {

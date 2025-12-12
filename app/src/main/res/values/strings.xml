@@ -11,12 +11,29 @@
     <string name="title_statistics">My statistics</string>
     <string name="title_profile">My profile</string>
 
-    <!-- Start Screen -->
-    <string name="welcome_title">Welcome to Kairo</string>
-    <string name="welcome_description">Your smart motivational Pomodoro timer to boost productivity. Works 100% offline.</string>
-    <string name="chip_sync">Synchronization</string>
-    <string name="chip_offline">100% Offline</string>
-    <string name="btn_google_login">Sign in with Google</string>
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Welcome to Kairo</string>
+    <string name="onboarding_welcome_description">A mobile app that helps you manage your tasks efficiently. With the integrated Pomodoro timer, you can track how much time you dedicate to each task, allowing you to organize your life more efficiently and quickly.</string>
+
+    <string name="onboarding_features_title">How to use Kairo</string>
+    <string name="onboarding_feature_home">Quick view of your assigned tasks and activity records</string>
+    <string name="onboarding_feature_tasks">Organize your tasks by time intervals and priorities</string>
+    <string name="onboarding_feature_statistics">Analyze your productivity with Pomodoro time and completed tasks metrics</string>
+    <string name="onboarding_feature_profile">Manage your account, preferences and access app information</string>
+
+    <string name="onboarding_privacy_title">Your privacy, your choice</string>
+    <string name="onboarding_privacy_message">Kairo respects your privacy and lets you choose how to use the app.</string>
+    <string name="onboarding_mode_online">Online</string>
+    <string name="onboarding_mode_online_desc">Sync in the cloud</string>
+    <string name="onboarding_mode_offline">Offline</string>
+    <string name="onboarding_mode_offline_desc">All data on your device</string>
+
+    <string name="onboarding_logo_desc">Kairo Logo</string>
+    <string name="onboarding_google_coming_soon">Google Sign-In coming soon! 🚀</string>
+    <string name="onboarding_emoji_cloud">☁️</string>
+    <string name="onboarding_emoji_phone">📱</string>
+
+    <string name="btn_google_login">Login with Google</string>
     <string name="btn_continue_offline">Continue offline</string>
 
     <!-- Debug Screens -->

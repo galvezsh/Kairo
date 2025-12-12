@@ -12,13 +12,30 @@
     <string name="title_statistics">Mis estadísticas</string>
     <string name="title_profile">Mi perfil</string>
 
-    <!-- Start Screen -->
-    <string name="welcome_title">Bienvenido a Kairo</string>
-    <string name="welcome_description">Tu temporizador Pomodoro inteligente motivacional para potenciar la productividad. Funciona 100% offline.</string>
-    <string name="chip_sync">Sincronización</string>
-    <string name="chip_offline">100% Offline</string>
-    <string name="btn_google_login">Iniciar Sesión con Google</string>
-    <string name="btn_continue_offline">Continuar offline</string>
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Bienvenido a Kairo</string>
+    <string name="onboarding_welcome_description">Una aplicación móvil que te ayuda a gestionar tus tareas de manera eficiente. Con el temporizador Pomodoro integrado, puedes saber cuánto tiempo dedicas a cada tarea, permitiéndote organizar tu vida de forma más eficiente y rápida.</string>
+
+    <string name="onboarding_features_title">Cómo usar Kairo</string>
+    <string name="onboarding_feature_home">Vista rápida de tus tareas asignadas y registros de actividad</string>
+    <string name="onboarding_feature_tasks">Organiza tus tareas por intervalos de tiempo y prioridades</string>
+    <string name="onboarding_feature_statistics">Analiza tu productividad con métricas de tiempo Pomodoro y tareas completadas</string>
+    <string name="onboarding_feature_profile">Gestiona tu cuenta, preferencias y accede a la información de la app</string>
+
+    <string name="onboarding_privacy_title">Tu privacidad, tu elección</string>
+    <string name="onboarding_privacy_message">Kairo respeta tu privacidad y te permite elegir cómo usar la aplicación.</string>
+    <string name="onboarding_mode_online">En línea</string>
+    <string name="onboarding_mode_online_desc">Sincroniza en la nube</string>
+    <string name="onboarding_mode_offline">Sin conexión</string>
+    <string name="onboarding_mode_offline_desc">Todos los datos en tu dispositivo</string>
+
+    <string name="onboarding_logo_desc">Logo de Kairo</string>
+    <string name="onboarding_google_coming_soon">¡Inicio de sesión con Google próximamente! 🚀</string>
+    <string name="onboarding_emoji_cloud">☁️</string>
+    <string name="onboarding_emoji_phone">📱</string>
+
+    <string name="btn_google_login">Iniciar sesión con Google</string>
+    <string name="btn_continue_offline">Continuar sin conexión</string>
 
     <!-- Debug Screens -->
     <string name="debug_home">Pantalla de inicio</string>
